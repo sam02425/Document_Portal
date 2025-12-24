@@ -1,0 +1,11 @@
+[document_portal]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[document_portal]
+name = "p1"
+version = "0.0.0"
+description = "Minimal project file to support editable install"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
