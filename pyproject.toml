@@ -8,9 +8,11 @@ name = "Document_Portal"
 version = "0.1"
 description = "An intelligent document analysis and comparison system powered by LLMs"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 authors = [ { name = "Sam02425" } ]
 classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",
 	"License :: OSI Approved :: MIT License",
 ]
