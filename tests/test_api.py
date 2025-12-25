@@ -1,7 +1,7 @@
 """
 Integration Tests for Document Portal API.
 Tests the endpoints: /extract/id, /verify/contract, /analyze/compliance.
-Mocks the 'Ingestion' module to avoid dependency on Tesseract/OCR during testing.
+Mocks the 'Ingestion.ingest' method to avoid dependency on Tesseract/OCR during testing.
 """
 import pytest
 from fastapi.testclient import TestClient
@@ -33,8 +33,25 @@ TEXAS RESIDENTIAL LEASE AGREEMENT
 """
 
 @pytest.fixture
-def mock_ingestion():
-    with patch("api.main.ingestion") as mock:
+def mock_ingest():
+    # Patch both processing methods to cover ID (image) and Contracts (PDF)
+    with patch("document_portal_core.ingestion.Ingestion._process_image") as mock_img, \
+         patch("document_portal_core.ingestion.Ingestion._process_pdf") as mock_pdf:
+        
+        # We return a helper that sets return values for both
+        mock = MagicMock()
+        
+        def set_return_value(text):
+            mock_img.return_value = text
+            mock_pdf.return_value = text
+            
+        mock.return_value = set_return_value # Not used directly but consistent
+        mock.set_text = set_return_value
+        
+        # Default behavior:
+        mock_img.return_value = ""
+        mock_pdf.return_value = ""
+        
         yield mock
 
 def test_health_check():
@@ -43,9 +60,9 @@ def test_health_check():
     assert response.status_code == 200
     assert response.json()["status"] == "ok"
 
-def test_extract_id_endpoint(mock_ingestion):
+def test_extract_id_endpoint(mock_ingest):
     """Test ID extraction endpoint."""
-    mock_ingestion.ingest.return_value = MOCK_ID_TEXT
+    mock_ingest.set_text(MOCK_ID_TEXT)
     
     # Create a dummy image file
     files = {"file": ("id.jpg", b"fake_image_bytes", "image/jpeg")}
@@ -57,9 +74,9 @@ def test_extract_id_endpoint(mock_ingestion):
     assert data["extracted"]["data"]["license_number"] == "87654321"
     assert data["extracted"]["data"]["dob"] == "05/15/1990"
 
-def test_verify_contract_endpoint(mock_ingestion):
+def test_verify_contract_endpoint(mock_ingest):
     """Test Contract Verification endpoint."""
-    mock_ingestion.ingest.return_value = MOCK_LEASE_TEXT
+    mock_ingest.set_text(MOCK_LEASE_TEXT)
     
     claims = {
         "expected_changes": [{"expected_text": "Security deposit"}]
@@ -80,9 +97,9 @@ def test_verify_contract_endpoint(mock_ingestion):
     assert res_data["compliance"]["compliance_score"] > 0
     assert "Texas, USA" in res_data["compliance"]["jurisdiction"]
 
-def test_analyze_compliance_endpoint(mock_ingestion):
+def test_analyze_compliance_endpoint(mock_ingest):
     """Test Compliance Analysis endpoint."""
-    mock_ingestion.ingest.return_value = MOCK_LEASE_TEXT
+    mock_ingest.set_text(MOCK_LEASE_TEXT)
     
     files = {"file": ("lease.pdf", b"fake_pdf_bytes", "application/pdf")}
     
@@ -90,4 +107,5 @@ def test_analyze_compliance_endpoint(mock_ingestion):
     
     assert response.status_code == 200
     data = response.json()
-    assert data["jurisdiction"] == "Texas, USA"
+    # It might return Jurisdiction detected
+    assert data.get("jurisdiction") == "Texas, USA"

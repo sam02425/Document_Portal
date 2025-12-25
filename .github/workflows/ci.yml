@@ -41,9 +41,9 @@ jobs:
         env:
           GOOGLE_API_KEY: TESTKEY
           GROQ_API_KEY: TESTKEY
-          PYTHONPATH: ${{ github.workspace }}/Document_Portal
+          PYTHONPATH: ${{ github.workspace }}
         run: |
-          pytest Document_Portal/tests --maxfail=3 --disable-warnings -q
+          pytest tests --maxfail=3 --disable-warnings -q
 
       - name: Build Docker image
         uses: docker/build-push-action@v5
