@@ -1,0 +1,101 @@
+# Document Portal - Docker Compose Configuration
+# For local development and testing
+
+version: '3.8'
+
+services:
+  # Main API service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: document-portal-api
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - LOG_LEVEL=INFO
+      - WORKERS=4
+    volumes:
+      # Mount code for development (hot reload)
+      - .:/app
+      # Persistent data directories
+      - upload_data:/app/temp_uploads
+      - result_data:/app/results
+      - cache_data:/app/data
+    networks:
+      - document-portal-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Optional: Redis for caching (future enhancement)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: document-portal-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis_data:/data
+  #   networks:
+  #     - document-portal-network
+  #   restart: unless-stopped
+
+  # Optional: PostgreSQL for structured storage (future enhancement)
+  # db:
+  #   image: postgres:15-alpine
+  #   container_name: document-portal-db
+  #   environment:
+  #     - POSTGRES_DB=document_portal
+  #     - POSTGRES_USER=docportal
+  #     - POSTGRES_PASSWORD=${DB_PASSWORD}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - document-portal-network
+  #   restart: unless-stopped
+
+  # Optional: Prometheus for monitoring (future enhancement)
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   container_name: document-portal-prometheus
+  #   volumes:
+  #     - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+  #     - prometheus_data:/prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   networks:
+  #     - document-portal-network
+  #   restart: unless-stopped
+
+  # Optional: Grafana for visualization (future enhancement)
+  # grafana:
+  #   image: grafana/grafana:latest
+  #   container_name: document-portal-grafana
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+  #   volumes:
+  #     - grafana_data:/var/lib/grafana
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - document-portal-network
+  #   restart: unless-stopped
+
+networks:
+  document-portal-network:
+    driver: bridge
+
+volumes:
+  upload_data:
+  result_data:
+  cache_data:
+  # redis_data:
+  # postgres_data:
+  # prometheus_data:
+  # grafana_data:
