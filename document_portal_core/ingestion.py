@@ -57,20 +57,74 @@ class Ingestion:
             # Unsupported file types should raise a ValueError for callers to handle
             raise ValueError(f"Unsupported file type: {suffix}")
 
-    def _process_image(self, image_path: Path) -> str:
+    def compress_image(self, image_path: Path, max_dimension: int = 2048, quality: int = 85) -> Path:
+        """
+        Compresses and resizes image for optimal API usage (simulates privacy/bandwidth opt).
+        Overwrites the file or returns path to compressed file.
+        """
         try:
+            with Image.open(image_path) as img:
+                # Resize if too large
+                if max(img.size) > max_dimension:
+                    img.thumbnail((max_dimension, max_dimension), Image.Resampling.LANCZOS)
+                
+                # Convert to RGB if needed (handle PNG/RGBA)
+                if img.mode in ('RGBA', 'P'):
+                    img = img.convert('RGB')
+                    
+                # Save with compression
+                img.save(image_path, "JPEG", quality=quality, optimize=True)
+                return image_path
+        except Exception as e:
+            # Fallback (e.g. if PDF)
+            return image_path
+            
+    def _process_image(self, image_path: Path) -> str:
+        """
+        Processes an image using Tesseract OCR.
+        Optimized for high-contrast docs.
+        """
+        try:
+            # Compress first
+            self.compress_image(image_path)
+            
             img = cv2.imread(str(image_path))
-            img = self._auto_orient_image(img)
-            pil_img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            try:
-                text = pytesseract.image_to_string(pil_img)
-            except Exception as e:
-                log.warning("Tesseract OCR failed or not available; returning empty text", error=str(e))
-                text = ""
+            if img is None:
+                return ""
+                
+            # Basic OCR only
+            text = pytesseract.image_to_string(img)
             return text
         except Exception as e:
             log.error("Image processing failed", error=str(e))
             raise
+
+    def _preprocess_for_ocr(self, img: np.ndarray) -> np.ndarray:
+        """
+        Applies binarization/thresholding to improve OCR accuracy.
+        Includes resizing and CLAHE for contrast fix.
+        """
+        try:
+            # 1. Resize if huge (optimize speed) - already handled in scan_document but good here too
+            h, w = img.shape[:2]
+            if w > 1500:
+               scale = 1500 / w
+               img = cv2.resize(img, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA)
+
+            # 2. Grayscale
+            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            
+            # 3. CLAHE (Contrast Limited Adaptive Histogram Equalization) - "Out of Box" logic
+            # Great for receipts with bad lighting/shadows
+            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+            gray = clahe.apply(gray)
+
+            # 4. Otsu's Thresholding
+            _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+            
+            return thresh
+        except Exception:
+            return img # Fallback to original if CV fails
 
     def _auto_orient_image(self, img: np.ndarray) -> np.ndarray:
         # Use OpenCV and Tesseract to auto-rotate and de-skew

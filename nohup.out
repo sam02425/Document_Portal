@@ -1,0 +1,1925 @@
+Traceback (most recent call last):
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/bin/uvicorn", line 9, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/home/currycreations/anaconda3/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1161, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1091, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 1
+    ```python
+    ^
+SyntaxError: invalid syntax
+INFO:     Started server process [452438]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49042 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49046 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43926 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:55:18,375 ERROR document_portal: Invoice Extraction failed | error='no such group'
+INFO:     127.0.0.1:43938 - "POST /extract/invoice HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:43950 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43956 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43962 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43972 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43986 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44002 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44010 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44012 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35744 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35756 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35762 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:55:44,486 ERROR document_portal: Invoice Extraction failed | error='no such group'
+INFO:     127.0.0.1:35770 - "POST /extract/invoice HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:35782 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35798 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35812 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35826 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35828 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35842 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53678 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53680 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [452438]
+INFO:     Started server process [453508]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+2025-12-24 21:56:15,051 INFO document_portal: Raw Text Preview: iia ' N fla
+TL ye i
+
+VER ; . OddoDD008999
+23.01.26.02 MP20 CHEVRON
+
+Report Printed On: ayutme nm maesse
+SO1/14/25 2:37:39 PM.
+ny Start bo 07/13/28 10:51:14 PH .
+| NING 96:52 PH
+TOLL BEGINNING BaLaige t=? ly
+
+as SS
+
+' Aléts,
+Discounts
+
++ TOTAL SALES $3,450.16
+
++ PREPAYS INITIATED 0 $0.00
+HERE
++ PREPAYS NOT PUMPED
+~ PREPAYS FROM OTHER
+TILLS
+
+$0.00
+$0.00
+
+co
+
+PAYMENTS INTO TILL :
+PATD INS 0 $0.00
+
+SAFE LOANS
+Cash $200.00
+$200.00
+
+PAYMENTS OUT OF TILL :
+PAID OUTS
+
+
+INFO:     127.0.0.1:55506 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:15,469 INFO document_portal: Raw Text Preview: ‘SP comcted Sommer Comenticunt Gancion, teen 78 pi Et Conteng bobeean $ and 10 +o aban. Ths protic dtve not snbat ha togetamanes br seeenat Naren ER
+sande ect ig Qesepated ae intended br woe a maser etn etl jt ttn a 9B US. comtgpeet ses and Newel.
+
+GHE aa8 g8B g
+
+SOS Sart SCS CMOS OBS Loud Sno: EOC O.Be
+
+eee
+
+‘Sremsete Ts protects been romecet water a TCED STO TNA EA FcR INRA on eda ft BE BN RG Weak Ree ANE PR ee Toe,
+
+an NA. Trower oon wi Be opr Re acon ote nT 3 Yous Aawonan C1130 aN ng Neate R
+INFO:     127.0.0.1:55516 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:15,936 INFO document_portal: Raw Text Preview: Batch: Contract
+
+BEAU EEE
+Load Start: 2025-07-09 08:24 Load Stop: 2025-07-09 08:27
+
+SUPPUER Qecn0d00K MOTIVA ENTERPRISES
+cus’ : 112545708 SWAT! ENT INC CARRIER: TRINITY
+: ENERGY RESOURCES
+ACCOUNT w 0020009576 SWATI ENT INC SCAC: TUB TRACTOR: TRAILER: 3802
+DESTINATION: DRIVER: 00014861 OTERO, EDWIN
+SHIP TO: 12900 1H-10 COMMENTS: ,
+
+ORANGE TX 77632-0000 ;
+
+For complete Health and = il .
+Physical Safety hazard information, please refer to the SUS, TX TERMINAL LOCATOR NUMBER F76-TK-2703
+
+tues Summ.
+
+INFO:     127.0.0.1:55530 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:16,346 INFO document_portal: Raw Text Preview: Total Sales 2,114.82
+
+Total Deposit 0.00
+Invoice Total 2,114.82
+
+2114.82
+953. 62
+
+DRIVER SIGNATURE :
+
+16 - FLORES-RT 16
+
+T AFFIRM THAT THE TEXAS ALCOHOLIC BEVERAGE CODE (Section 11.72 and
+61.68) AUTHORIZES THE ALCOHOLIC BEVERAGES SHOWN ON THIS INVOICE TO BE
+PURCHASED BY AND DELIVERED 70 THIS BUSINESS AT THE ADDRESS STATED
+ON THE INVOICE.
+
+Final
+
+£T2i TA ATECTHIDITTEHS OF timer
+
+INFO:     127.0.0.1:55542 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:16,892 INFO document_portal: Raw Text Preview: ‘QRANGE TX 77630
+
+‘4 MANAGER S
+sq OPERATOR ID: 713
+REGISTER ID: 1
+000000008980
+23.01.26.02 MP20 CHEVRON
+
+Report Printed On :
+Till Start :
+Till End : 07/09/25 1:56:42 PH
+TILL BEGINNING BALANCE :
+$200.00
+
+$200.00
+
+$3,537.36
+
+$0.00
+-$15.28
+$210.75.
+
+$3, 732.83
+$0.00
+
++ PREPAYS NOT PUMPED $0.00
+PREPAYS FROM OTHER $0.00
+
+PAID INS $0.00
+
+"SAFE LOANS
+Cash
+
+$200.00
+
+SAFE LOANS $200.00
+
+TAL PAYMENTS INTO TILL $200.00
+
+0 $0.00)
+
+RERAARSRSSEK Se R=
+Pa NTS OUT OF TILL :
+eli
+
+INFO:     127.0.0.1:55552 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:17,318 INFO document_portal: Raw Text Preview: FrIntead dt neldaliel # LOTFI
+
+VALID AS OF
+TUE _JULOB 2025
+RETAILER 184798
+SUMMARY
+3 MEGA SALES $
+4 PWRB SALES
+1 LOTO SALES
+0 PCK3 SALES
+0 DLY4 SALES |
+
+Q CSHS SALES
+0 1X25 SALES
+Q ALNO SALES
+8 DRAW GM GROSS SALES
+
+Q PCK3 CANCEL
+Q DLY4 CANCEL
+8 DRW GM NET SALES
+
+Q MEGA CASHES ‘
+
+0 PWRB CASHES
+
+0 LOTO CASHES «=. -$
+
+0 PCK3 CASHES =” be
+R
+
+0 DLY4 CASHES «=
+
+0 CSH5 CASHES «6
+1X25 CASHES =
+ALNO CASHES. if
+
+;
+3 SCRATCH CASHES
+
+O DRW GMTCREDIT,
+0 STEN TKI mq >
+
+0 STOLEN JKT Ga
+
+0 SETTLEY \.
+
+COMMISST 
+INFO:     127.0.0.1:55564 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:17,886 INFO document_portal: Raw Text Preview: SANDHAR FF INC
+6312 FM 1442,
+
+ORANGE, TX 77630
+
+Vendor #
+Store #: ABG1389
+rustomer #: 3743850
+XD: 32065622123
+PO#:
+ACCOM CODE #
+SOE _
+SALES SUMMARY
+Qty Amount
+Sates
+Cases 34 792.04
+Total Units 507
+Credits
+Full Cases 0 0.00
+Single Units 0 0.00
+Total Units 0
+Container Deposits 0.00
+Sales Tax 0.00
+State/Local Charges 0.00
+OO
+Amount Due $ 792,04
+TERMS: Check
+
+RECEIVED ay:
+
+mas
+
+ITEM DETAI
+
+* SALES
+Daécription UPC
+Whisi Cases Units
+
+13.702 NR 1/12;ecne ,
+FRAP MCH 0-12000-00452-0
+55.00 1 1230.88 30.88
+INFO:     127.0.0.1:37344 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:18,246 INFO document_portal: Raw Text Preview: Bobest Chevron Babcat Chevron
+
+8312 FM 1442 6342 FM 1442
+Orange, TX 77630 Orange, TX 77630
+Phone: 713-423-4831 Phone: 713-423-4831
+
+Contact: Ashu Shrestha Contact: 743-645-1615.
+
+™ 141 10N Mango Royatice Frut Slush © X 0.5 Gallons)
+“i428 Joty Rancher- Watermelon
+1/4133 Joty Rancher - Orange
+
+eG 3) otal Cases,
+
+AAS Ww SN
+ne SN SS
+
+INFO:     127.0.0.1:37348 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:18,796 INFO document_portal: Raw Text Preview: $8.40
+
+$3,037.95
+
+SALES
+§ Customers
+m Fuel sales $842.56
+
+a
+
+fee Merchandise $2,897.73
+em fuel + Merch $3,732.83
+aa Manual Fuel $0.00
+Prepay $750.74
+Prepay Refund -$4.43
+$0.00
+
+$0.00
+
+CRIND CASH ACCEPTOR
+| Refunds
+
+“) Safe Drop $3,932.95
+
+Safe Loans $200.00
+
+$0.00
+
+Discounts -$15.28
+
+Fuel Discounts -$7.46
+
+Loyalty Discounts -$0.23
+
+7 Line voids $114.93
+g No Sales Count
+
+$0.00
+
+4 Trans voids $4.42
+4 Drive Off $0.00
+
+DEPARTMENT SALES
+@ GROC NO TAX
+
+$5.89
+
+; $315.80
+gq CIG PACKS $445.04
+
+
+INFO:     127.0.0.1:37362 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:19,372 INFO document_portal: Raw Text Preview: ”
+
+55 00 4 192200 oJ UU
+GAT FRST ICY CHRG 0-52000-01028-2
+
+55.00 1 162300 2300
+GAT LL 0-52000-13515-2
+
+55.00 1 192306 2300
+GAT ORG 0-52000-13514-5
+
+55.00 1 152300 2300
+GAT BLU 0-82000-13517-6
+
+55.00 1 1523.00 2300
+
+GAT FT PNCH 0-52000-13513-8
+55 00 1 1523.00 2300
+
+GAT FRC BL CHE 0-52000-104 10-3
+55.00 4 1523.00 23.00
+
+GAT FRC STW 0-§2000-13528-2
+55.00 1 162300 23.00
+
+GAT FRC GRP 0-52000- 13516-9
+55.00 1 152300 23.00
+
+GAT LME CUCMBR 0-52000- 13508-4
+55.00 1 1523.00 23.00
+
+GAT LGHTNG BLST 0-82000-
+INFO:     127.0.0.1:37372 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:19,852 INFO document_portal: Raw Text Preview: =
+i=}
+Ss
+=
+=
+a
+
+:
+i
+'
+H
+t
+H
+t
+t
+'
+H
+H
+'
+H
+'
+i
+'
+H
+'
+H
+H
+I
+t
+'
+'
+H
+(
+'
+H
+‘
+i
+t
+'
+'
+'
+‘#
+‘
+t
+'
+H
+:
+'
+'
+'
+‘
+:
+:
+H
+i
+:
+'
+'
+H
+‘
+t
+t
+'
+‘
+'
+H
+H
+'
+H
+‘
+:
+ot
+H
+H
+H
+H
+
+TN) DIES ONY SITS HJ
+S178 [FCP IM SIAL LVINGSIN SINS
+
+Ee SIQAATE we PO GV
+
+iSSANISNG HDA 804 NCA YH
+3
+
+UGLG" LES UU
+£999-S25- 008
+
+SNIWOIS
+
+£090 # HD
+
+90 X¥1
+
+00 XVI
+
+SIS SSO) WIOL
+
+WIL DIGANI
+
+3 -P8D SN
+
+WIOLGS SIWS
+
+OaFee af
+
+MOLARS sail
+
+FEE.
+Aye "eees i
+
+ncroveaveoeal
+
+g
+2 sE- x
+, a i.
+
+wes
+ty
+“0S
+
+ws
+id
+
+Sy
+
+Ce
+
+L
+
+2
+
+A
+
+‘@
+-o@
+ays
+
+. -
+INFO:     127.0.0.1:37388 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:20,314 INFO document_portal: Raw Text Preview: SALES
+
+Customers 301
+
+Fuel sales 32. $702.30
+Merchandise 763 $3,202.84
+Fuel + Merch 795 $3,897.12
+Manual Fue! 0 $0.00
+Prepay 31 $675.77
+Prepay Refund -$8.00
+Imprinter 0 $0.00
+CarWash 0 $0.00)
+ReWash )
+
+CRIND CASH ACCEPTOR
+
+Refunds 0 $0.00
+Change Back 0 $0.00
+OTHER
+
+Safe Drop 4 -$4,090.34
+Safe Loans 1 $200.00
+Refunds 0 $0.00
+Discounts 24 -$17.02
+Fuel Discounts 9 ~$8 02
+Loyalty Discounts 0 $0.00
+Line voids 24 $4
+No Sales Count 8
+
+Post voids 0 $0.00
+Trans voids 2 $0.00
+Drive Off 0 $0.00
+Test Fuel 0
+INFO:     127.0.0.1:37404 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Started server process [454291]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8000): [errno 98] address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2025-12-24 21:56:50,043 INFO document_portal: Raw Text Preview: iia ' N fla
+TL ye i
+
+VER ; . OddoDD008999
+23.01.26.02 MP20 CHEVRON
+
+Report Printed On: ayutme nm maesse
+SO1/14/25 2:37:39 PM.
+ny Start bo 07/13/28 10:51:14 PH .
+| NING 96:52 PH
+TOLL BEGINNING BaLaige t=? ly
+
+as SS
+
+' Aléts,
+Discounts
+
++ TOTAL SALES $3,450.16
+
++ PREPAYS INITIATED 0 $0.00
+HERE
++ PREPAYS NOT PUMPED
+~ PREPAYS FROM OTHER
+TILLS
+
+$0.00
+$0.00
+
+co
+
+PAYMENTS INTO TILL :
+PATD INS 0 $0.00
+
+SAFE LOANS
+Cash $200.00
+$200.00
+
+PAYMENTS OUT OF TILL :
+PAID OUTS
+
+
+INFO:     127.0.0.1:54130 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:50,462 INFO document_portal: Raw Text Preview: ‘SP comcted Sommer Comenticunt Gancion, teen 78 pi Et Conteng bobeean $ and 10 +o aban. Ths protic dtve not snbat ha togetamanes br seeenat Naren ER
+sande ect ig Qesepated ae intended br woe a maser etn etl jt ttn a 9B US. comtgpeet ses and Newel.
+
+GHE aa8 g8B g
+
+SOS Sart SCS CMOS OBS Loud Sno: EOC O.Be
+
+eee
+
+‘Sremsete Ts protects been romecet water a TCED STO TNA EA FcR INRA on eda ft BE BN RG Weak Ree ANE PR ee Toe,
+
+an NA. Trower oon wi Be opr Re acon ote nT 3 Yous Aawonan C1130 aN ng Neate R
+INFO:     127.0.0.1:54144 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:50,930 INFO document_portal: Raw Text Preview: Batch: Contract
+
+BEAU EEE
+Load Start: 2025-07-09 08:24 Load Stop: 2025-07-09 08:27
+
+SUPPUER Qecn0d00K MOTIVA ENTERPRISES
+cus’ : 112545708 SWAT! ENT INC CARRIER: TRINITY
+: ENERGY RESOURCES
+ACCOUNT w 0020009576 SWATI ENT INC SCAC: TUB TRACTOR: TRAILER: 3802
+DESTINATION: DRIVER: 00014861 OTERO, EDWIN
+SHIP TO: 12900 1H-10 COMMENTS: ,
+
+ORANGE TX 77632-0000 ;
+
+For complete Health and = il .
+Physical Safety hazard information, please refer to the SUS, TX TERMINAL LOCATOR NUMBER F76-TK-2703
+
+tues Summ.
+
+INFO:     127.0.0.1:54148 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:51,321 INFO document_portal: Raw Text Preview: Total Sales 2,114.82
+
+Total Deposit 0.00
+Invoice Total 2,114.82
+
+2114.82
+953. 62
+
+DRIVER SIGNATURE :
+
+16 - FLORES-RT 16
+
+T AFFIRM THAT THE TEXAS ALCOHOLIC BEVERAGE CODE (Section 11.72 and
+61.68) AUTHORIZES THE ALCOHOLIC BEVERAGES SHOWN ON THIS INVOICE TO BE
+PURCHASED BY AND DELIVERED 70 THIS BUSINESS AT THE ADDRESS STATED
+ON THE INVOICE.
+
+Final
+
+£T2i TA ATECTHIDITTEHS OF timer
+
+INFO:     127.0.0.1:54162 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:51,852 INFO document_portal: Raw Text Preview: ‘QRANGE TX 77630
+
+‘4 MANAGER S
+sq OPERATOR ID: 713
+REGISTER ID: 1
+000000008980
+23.01.26.02 MP20 CHEVRON
+
+Report Printed On :
+Till Start :
+Till End : 07/09/25 1:56:42 PH
+TILL BEGINNING BALANCE :
+$200.00
+
+$200.00
+
+$3,537.36
+
+$0.00
+-$15.28
+$210.75.
+
+$3, 732.83
+$0.00
+
++ PREPAYS NOT PUMPED $0.00
+PREPAYS FROM OTHER $0.00
+
+PAID INS $0.00
+
+"SAFE LOANS
+Cash
+
+$200.00
+
+SAFE LOANS $200.00
+
+TAL PAYMENTS INTO TILL $200.00
+
+0 $0.00)
+
+RERAARSRSSEK Se R=
+Pa NTS OUT OF TILL :
+eli
+
+INFO:     127.0.0.1:54174 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:52,274 INFO document_portal: Raw Text Preview: FrIntead dt neldaliel # LOTFI
+
+VALID AS OF
+TUE _JULOB 2025
+RETAILER 184798
+SUMMARY
+3 MEGA SALES $
+4 PWRB SALES
+1 LOTO SALES
+0 PCK3 SALES
+0 DLY4 SALES |
+
+Q CSHS SALES
+0 1X25 SALES
+Q ALNO SALES
+8 DRAW GM GROSS SALES
+
+Q PCK3 CANCEL
+Q DLY4 CANCEL
+8 DRW GM NET SALES
+
+Q MEGA CASHES ‘
+
+0 PWRB CASHES
+
+0 LOTO CASHES «=. -$
+
+0 PCK3 CASHES =” be
+R
+
+0 DLY4 CASHES «=
+
+0 CSH5 CASHES «6
+1X25 CASHES =
+ALNO CASHES. if
+
+;
+3 SCRATCH CASHES
+
+O DRW GMTCREDIT,
+0 STEN TKI mq >
+
+0 STOLEN JKT Ga
+
+0 SETTLEY \.
+
+COMMISST 
+INFO:     127.0.0.1:54186 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:52,849 INFO document_portal: Raw Text Preview: SANDHAR FF INC
+6312 FM 1442,
+
+ORANGE, TX 77630
+
+Vendor #
+Store #: ABG1389
+rustomer #: 3743850
+XD: 32065622123
+PO#:
+ACCOM CODE #
+SOE _
+SALES SUMMARY
+Qty Amount
+Sates
+Cases 34 792.04
+Total Units 507
+Credits
+Full Cases 0 0.00
+Single Units 0 0.00
+Total Units 0
+Container Deposits 0.00
+Sales Tax 0.00
+State/Local Charges 0.00
+OO
+Amount Due $ 792,04
+TERMS: Check
+
+RECEIVED ay:
+
+mas
+
+ITEM DETAI
+
+* SALES
+Daécription UPC
+Whisi Cases Units
+
+13.702 NR 1/12;ecne ,
+FRAP MCH 0-12000-00452-0
+55.00 1 1230.88 30.88
+INFO:     127.0.0.1:54192 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:53,211 INFO document_portal: Raw Text Preview: Bobest Chevron Babcat Chevron
+
+8312 FM 1442 6342 FM 1442
+Orange, TX 77630 Orange, TX 77630
+Phone: 713-423-4831 Phone: 713-423-4831
+
+Contact: Ashu Shrestha Contact: 743-645-1615.
+
+™ 141 10N Mango Royatice Frut Slush © X 0.5 Gallons)
+“i428 Joty Rancher- Watermelon
+1/4133 Joty Rancher - Orange
+
+eG 3) otal Cases,
+
+AAS Ww SN
+ne SN SS
+
+INFO:     127.0.0.1:54208 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:53,752 INFO document_portal: Raw Text Preview: $8.40
+
+$3,037.95
+
+SALES
+§ Customers
+m Fuel sales $842.56
+
+a
+
+fee Merchandise $2,897.73
+em fuel + Merch $3,732.83
+aa Manual Fuel $0.00
+Prepay $750.74
+Prepay Refund -$4.43
+$0.00
+
+$0.00
+
+CRIND CASH ACCEPTOR
+| Refunds
+
+“) Safe Drop $3,932.95
+
+Safe Loans $200.00
+
+$0.00
+
+Discounts -$15.28
+
+Fuel Discounts -$7.46
+
+Loyalty Discounts -$0.23
+
+7 Line voids $114.93
+g No Sales Count
+
+$0.00
+
+4 Trans voids $4.42
+4 Drive Off $0.00
+
+DEPARTMENT SALES
+@ GROC NO TAX
+
+$5.89
+
+; $315.80
+gq CIG PACKS $445.04
+
+
+INFO:     127.0.0.1:54216 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:54,316 INFO document_portal: Raw Text Preview: ”
+
+55 00 4 192200 oJ UU
+GAT FRST ICY CHRG 0-52000-01028-2
+
+55.00 1 162300 2300
+GAT LL 0-52000-13515-2
+
+55.00 1 192306 2300
+GAT ORG 0-52000-13514-5
+
+55.00 1 152300 2300
+GAT BLU 0-82000-13517-6
+
+55.00 1 1523.00 2300
+
+GAT FT PNCH 0-52000-13513-8
+55 00 1 1523.00 2300
+
+GAT FRC BL CHE 0-52000-104 10-3
+55.00 4 1523.00 23.00
+
+GAT FRC STW 0-§2000-13528-2
+55.00 1 162300 23.00
+
+GAT FRC GRP 0-52000- 13516-9
+55.00 1 152300 23.00
+
+GAT LME CUCMBR 0-52000- 13508-4
+55.00 1 1523.00 23.00
+
+GAT LGHTNG BLST 0-82000-
+INFO:     127.0.0.1:54228 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:54,796 INFO document_portal: Raw Text Preview: =
+i=}
+Ss
+=
+=
+a
+
+:
+i
+'
+H
+t
+H
+t
+t
+'
+H
+H
+'
+H
+'
+i
+'
+H
+'
+H
+H
+I
+t
+'
+'
+H
+(
+'
+H
+‘
+i
+t
+'
+'
+'
+‘#
+‘
+t
+'
+H
+:
+'
+'
+'
+‘
+:
+:
+H
+i
+:
+'
+'
+H
+‘
+t
+t
+'
+‘
+'
+H
+H
+'
+H
+‘
+:
+ot
+H
+H
+H
+H
+
+TN) DIES ONY SITS HJ
+S178 [FCP IM SIAL LVINGSIN SINS
+
+Ee SIQAATE we PO GV
+
+iSSANISNG HDA 804 NCA YH
+3
+
+UGLG" LES UU
+£999-S25- 008
+
+SNIWOIS
+
+£090 # HD
+
+90 X¥1
+
+00 XVI
+
+SIS SSO) WIOL
+
+WIL DIGANI
+
+3 -P8D SN
+
+WIOLGS SIWS
+
+OaFee af
+
+MOLARS sail
+
+FEE.
+Aye "eees i
+
+ncroveaveoeal
+
+g
+2 sE- x
+, a i.
+
+wes
+ty
+“0S
+
+ws
+id
+
+Sy
+
+Ce
+
+L
+
+2
+
+A
+
+‘@
+-o@
+ays
+
+. -
+INFO:     127.0.0.1:54242 - "POST /extract/invoice HTTP/1.1" 200 OK
+2025-12-24 21:56:55,269 INFO document_portal: Raw Text Preview: SALES
+
+Customers 301
+
+Fuel sales 32. $702.30
+Merchandise 763 $3,202.84
+Fuel + Merch 795 $3,897.12
+Manual Fue! 0 $0.00
+Prepay 31 $675.77
+Prepay Refund -$8.00
+Imprinter 0 $0.00
+CarWash 0 $0.00)
+ReWash )
+
+CRIND CASH ACCEPTOR
+
+Refunds 0 $0.00
+Change Back 0 $0.00
+OTHER
+
+Safe Drop 4 -$4,090.34
+Safe Loans 1 $200.00
+Refunds 0 $0.00
+Discounts 24 -$17.02
+Fuel Discounts 9 ~$8 02
+Loyalty Discounts 0 $0.00
+Line voids 24 $4
+No Sales Count 8
+
+Post voids 0 $0.00
+Trans voids 2 $0.00
+Drive Off 0 $0.00
+Test Fuel 0
+INFO:     127.0.0.1:54256 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [453508]
+2025-12-24 22:02:00,094 WARNING document_portal: GOOGLE_API_KEY not found. Gemini Extraction will fail.
+Traceback (most recent call last):
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/bin/uvicorn", line 9, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/home/currycreations/anaconda3/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1027, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 34, in <module>
+    gemini_extractor = GeminiVisionExtractor() # Needs GOOGLE_API_KEY in env
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/document_portal_core/gemini_extractor.py", line 28, in __init__
+    self.llm = ChatGoogleGenerativeAI(
+               ~~~~~~~~~~~~~~~~~~~~~~^
+        model="gemini-1.5-flash",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        convert_system_message_to_human=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py", line 1189, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py", line 1248, in validate_environment
+    self.client = genaix.build_generative_service(
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        credentials=self.credentials,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        transport=transport,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/_genai_extension.py", line 276, in build_generative_service
+    return v1betaGenerativeServiceClient(**config)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 697, in __init__
+    self._transport = transport_init(
+                      ~~~~~~~~~~~~~~^
+        credentials=credentials,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        api_audience=self._client_options.api_audience,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 234, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        host=host,
+        ^^^^^^^^^^
+    ...<6 lines>...
+        api_audience=api_audience,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/base.py", line 100, in __init__
+    credentials, _ = google.auth.default(
+                     ~~~~~~~~~~~~~~~~~~~^
+        **scopes_kwargs, quota_project_id=quota_project_id
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/auth/_default.py", line 739, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+2025-12-24 22:02:27,159 WARNING document_portal: GOOGLE_API_KEY not found. Gemini Extraction will fail.
+Traceback (most recent call last):
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/bin/uvicorn", line 9, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/home/currycreations/anaconda3/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1027, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 37, in <module>
+    gemini_extractor = GeminiVisionExtractor() # Needs GOOGLE_API_KEY in env
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/document_portal_core/gemini_extractor.py", line 28, in __init__
+    self.llm = ChatGoogleGenerativeAI(
+               ~~~~~~~~~~~~~~~~~~~~~~^
+        model="gemini-1.5-flash",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        convert_system_message_to_human=True
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py", line 1189, in __init__
+    super().__init__(**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_core/load/serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/pydantic/main.py", line 250, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py", line 1248, in validate_environment
+    self.client = genaix.build_generative_service(
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        credentials=self.credentials,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        transport=transport,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/_genai_extension.py", line 276, in build_generative_service
+    return v1betaGenerativeServiceClient(**config)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 697, in __init__
+    self._transport = transport_init(
+                      ~~~~~~~~~~~~~~^
+        credentials=credentials,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        api_audience=self._client_options.api_audience,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 234, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        host=host,
+        ^^^^^^^^^^
+    ...<6 lines>...
+        api_audience=api_audience,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/base.py", line 100, in __init__
+    credentials, _ = google.auth.default(
+                     ~~~~~~~~~~~~~~~~~~~^
+        **scopes_kwargs, quota_project_id=quota_project_id
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/google/auth/_default.py", line 739, in default
+    raise exceptions.DefaultCredentialsError(_CLOUD_SDK_MISSING_CREDENTIALS)
+google.auth.exceptions.DefaultCredentialsError: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+INFO:     Started server process [459464]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:11,592 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:58850 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:14,803 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:58854 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:18,270 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:58868 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:21,610 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:50042 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:25,419 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:50044 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:28,972 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:50046 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:32,771 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:48758 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:36,165 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:48772 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+Traceback (most recent call last):
+  File "/home/currycreations/.local/bin/uvicorn", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+    run(
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+    server.run()
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/importer.py", line 22, in import_from_string
+    raise exc from None
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 17, in <module>
+    from document_portal_core.ingestion import Ingestion
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/document_portal_core/ingestion.py", line 12, in <module>
+    import pytesseract
+ModuleNotFoundError: No module named 'pytesseract'
+2025-12-24 22:03:40,096 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:48784 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:43,711 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:49624 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:47,233 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:49634 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:50,390 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:49636 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:53,685 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:49646 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:03:57,081 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:35324 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:00,866 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:35328 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:04,149 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:35334 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     Started server process [460921]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8000): [errno 98] address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:07,907 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:46200 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:11,554 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:46206 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:15,234 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:57330 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:18,374 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:57346 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:22,150 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:57352 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:25,329 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:40404 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:04:28,688 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     Shutting down
+INFO:     127.0.0.1:40420 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+Traceback (most recent call last):
+  File "/home/currycreations/.local/bin/uvicorn", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/main.py", line 423, in main
+    run(
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/main.py", line 593, in run
+    server.run()
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/importer.py", line 22, in import_from_string
+    raise exc from None
+  File "/home/currycreations/.local/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 17, in <module>
+    from document_portal_core.ingestion import Ingestion
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/document_portal_core/ingestion.py", line 12, in <module>
+    import pytesseract
+ModuleNotFoundError: No module named 'pytesseract'
+2025-12-24 22:04:31,965 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     Waiting for connections to close. (CTRL+C to force quit)
+INFO:     127.0.0.1:40434 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [459464]
+INFO:     Started server process [462006]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:11,185 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42850 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:14,315 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42856 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:17,461 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42870 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:20,790 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:52128 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:24,463 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:52144 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:28,087 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:52156 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:31,836 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42474 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:35,261 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42484 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:39,234 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:42488 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:42,702 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:40104 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:45,971 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:40114 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised NotFound: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods..
+2025-12-24 22:05:49,715 ERROR document_portal: Gemini Extraction failed: 404 models/gemini-pro-vision is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+INFO:     127.0.0.1:40128 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [462006]
+INFO:     Started server process [463477]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:42414 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:42426 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:36344 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:36348 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:36364 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:48394 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:48408 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:48418 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:50872 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:50884 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:50890 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:57402 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51454 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51454 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [463477]
+INFO:     Started server process [469480]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [469480]
+INFO:     Started server process [478183]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:51080 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:44564 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [478183]
+INFO:     Started server process [479794]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:48054 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [479794]
+Traceback (most recent call last):
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/./venv/bin/uvicorn", line 9, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 413, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<45 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/main.py", line 580, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/currycreations/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/config.py", line 436, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/home/currycreations/anaconda3/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1027, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/api/main.py", line 17, in <module>
+    from document_portal_core.ingestion import Ingestion
+  File "/home/currycreations/Desktop/New Folder/Document_Portal/document_portal_core/ingestion.py", line 94
+    img = self._auto_orient_image(img)
+IndentationError: unexpected indent
+INFO:     Started server process [500078]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:37380 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [500078]
+INFO:     Started server process [500977]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:44708 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [500977]
+INFO:     Started server process [501867]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:55168 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [501867]
+INFO:     Started server process [502704]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:39858 - "POST /extract/invoice HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [502704]
+INFO:     Started server process [503573]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:34004 - "POST /extract/invoice HTTP/1.1" 200 OK
+/home/currycreations/Desktop/New Folder/Document_Portal/venv/lib/python3.13/site-packages/langchain_google_genai/chat_models.py:483: UserWarning: Convert_system_message_to_human will be deprecated!
+  warnings.warn("Convert_system_message_to_human will be deprecated!")
+INFO:     127.0.0.1:48970 - "POST /extract/invoice HTTP/1.1" 200 OK

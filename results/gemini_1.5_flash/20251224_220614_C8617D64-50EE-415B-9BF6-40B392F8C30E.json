@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "filename": "C8617D64-50EE-415B-9BF6-40B392F8C30E.JPG",
+    "timestamp": "2025-12-24T22:06:14.086002",
+    "model": "gemini_1.5_flash",
+    "duration_seconds": 6.7615,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "vendor_name": "BOBCAT CHEVRON",
+    "total_amount": "3658.65",
+    "invoice_date": "2025-07-14",
+    "invoice_number": null,
+    "doc_type": "Shift Report"
+  }
+}

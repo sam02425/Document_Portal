@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "filename": "C8617D64-50EE-415B-9BF6-40B392F8C30E.JPG",
+    "timestamp": "2025-12-24T22:53:24.203605",
+    "model": "gemini-2.0-flash",
+    "duration_seconds": 3.1206,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "doc_type": "Shift Report",
+    "vendor": {
+      "name": "BOBCAT CHEVRON",
+      "phone": null,
+      "address": "6312 FM 1442\nORANGE TX 77630",
+      "website": null
+    },
+    "invoice_details": {
+      "number": null,
+      "date": "2025-07-14",
+      "due_date": null,
+      "po_number": null
+    },
+    "financials": {
+      "total_amount": null,
+      "subtotal": 3257.73,
+      "tax": 213.78,
+      "credits": -21.35,
+      "balance_due": -8.49
+    },
+    "line_items": [],
+    "shift_report_details": {
+      "total_sales": 3450.16,
+      "fuel_sales": null,
+      "merch_sales": null,
+      "cash_drop": 973.0
+    }
+  }
+}

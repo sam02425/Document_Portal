@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "filename": "71FC1CD9-417F-41E8-B132-4C88FEA3414D.JPG",
+    "timestamp": "2025-12-24T22:06:41.594626",
+    "model": "gemini_1.5_flash",
+    "duration_seconds": 3.8393,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "vendor_name": null,
+    "total_amount": "3037.95",
+    "invoice_date": null,
+    "invoice_number": null,
+    "doc_type": "Shift Report"
+  }
+}

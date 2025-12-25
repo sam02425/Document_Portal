@@ -1,0 +1,359 @@
+Sending Batch: E3E271D3-F374-4981-8DEE-390210976C9E.JPG + D73CB49D-509F-4F01-8DE2-7127319EB828.JPG
+{
+  "batch_count": 2,
+  "merged_count": 2,
+  "results": [
+    {
+      "filename": "E3E271D3-F374-4981-8DEE-390210976C9E.JPG",
+      "extracted": {
+        "data": {
+          "doc_type": "Invoice",
+          "vendor": {
+            "name": "PEPSICO BEVERAGES COMPANY",
+            "phone": "(610) 797-4476",
+            "address": "12700 CITYPARK DR\nMISSOURI CITY. TX 77489-124",
+            "website": null
+          },
+          "invoice_details": {
+            "number": "65875001",
+            "date": "2025-07-15",
+            "due_date": null,
+            "po_number": null
+          },
+          "financials": {
+            "total_amount": 792.04,
+            "subtotal": null,
+            "tax": null,
+            "credits": 0.0,
+            "balance_due": null
+          },
+          "line_items": [
+            {
+              "description": "FRAP MCH 0-12000-00452-0",
+              "quantity": 12.0,
+              "unit_price": 30.88,
+              "total_price": 30.88,
+              "product_code": null
+            },
+            {
+              "description": "FRAP VAN 0-12000-81331-3",
+              "quantity": 12.0,
+              "unit_price": 30.88,
+              "total_price": 30.88,
+              "product_code": null
+            },
+            {
+              "description": "FRAP CRML 0-12000-01672-1",
+              "quantity": 12.0,
+              "unit_price": 30.88,
+              "total_price": 30.88,
+              "product_code": null
+            },
+            {
+              "description": "LIT PLF EXSWT 0-12000-28617-9",
+              "quantity": 12.0,
+              "unit_price": 19.35,
+              "total_price": 19.35,
+              "product_code": null
+            },
+            {
+              "description": "LIT PLF SWL 0-12000-28618-6",
+              "quantity": 12.0,
+              "unit_price": 19.35,
+              "total_price": 19.35,
+              "product_code": null
+            },
+            {
+              "description": "LIT PLF SWT 0-12000-28619-3",
+              "quantity": 12.0,
+              "unit_price": 19.35,
+              "total_price": 19.35,
+              "product_code": null
+            },
+            {
+              "description": "LIT PLF UNSNL 0-12000-28620-9",
+              "quantity": 12.0,
+              "unit_price": 19.35,
+              "total_price": 19.35,
+              "product_code": null
+            },
+            {
+              "description": "LPT PLF BLKBRY 0-98000-10043-1",
+              "quantity": 12.0,
+              "unit_price": 19.35,
+              "total_price": 19.35,
+              "product_code": null
+            },
+            {
+              "description": "AQUA WTR 0-12000-00159-8",
+              "quantity": 24.0,
+              "unit_price": 25.15,
+              "total_price": 25.15,
+              "product_code": null
+            },
+            {
+              "description": "PEPSI WCHE 0-12000-00559-6",
+              "quantity": 24.0,
+              "unit_price": 33.2,
+              "total_price": 33.2,
+              "product_code": null
+            },
+            {
+              "description": "MDEW 0-12000-00131-4",
+              "quantity": 24.0,
+              "unit_price": 33.2,
+              "total_price": 33.2,
+              "product_code": null
+            },
+            {
+              "description": "SCHWP GALE 0-78000-20640-1",
+              "quantity": 24.0,
+              "unit_price": 24.95,
+              "total_price": 24.95,
+              "product_code": null
+            },
+            {
+              "description": "GAT GLCR FRZ 0-52000-13519-0",
+              "quantity": 15.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            }
+          ],
+          "shift_report_details": {
+            "total_sales": null,
+            "fuel_sales": null,
+            "merch_sales": null,
+            "cash_drop": null
+          }
+        },
+        "confidence": 95,
+        "method": "gemini_flash_vision",
+        "duration": 17.890000000596046
+      },
+      "model_used": "gemini-2.0-flash"
+    },
+    {
+      "filename": "D73CB49D-509F-4F01-8DE2-7127319EB828.JPG",
+      "extracted": {
+        "data": {
+          "doc_type": "Invoice",
+          "vendor": {
+            "name": null,
+            "phone": null,
+            "address": null,
+            "website": null
+          },
+          "invoice_details": {
+            "number": null,
+            "date": null,
+            "due_date": null,
+            "po_number": null
+          },
+          "financials": {
+            "total_amount": 792.04,
+            "subtotal": null,
+            "tax": null,
+            "credits": null,
+            "balance_due": null
+          },
+          "line_items": [
+            {
+              "description": "AQUA WTR 0-12000-00159-8",
+              "quantity": 1.0,
+              "unit_price": 25.15,
+              "total_price": 25.15,
+              "product_code": null
+            },
+            {
+              "description": "PEPSI WCHE 0-12000-00559-6",
+              "quantity": 1.0,
+              "unit_price": 33.2,
+              "total_price": 33.2,
+              "product_code": null
+            },
+            {
+              "description": "MDEW 0-12000-00131-4",
+              "quantity": 1.0,
+              "unit_price": 33.2,
+              "total_price": 33.2,
+              "product_code": null
+            },
+            {
+              "description": "SCHWP GALE 0-78000-20640-1",
+              "quantity": 1.0,
+              "unit_price": 24.95,
+              "total_price": 24.95,
+              "product_code": null
+            },
+            {
+              "description": "GAT GLCR FRZ 0-52000-13519-0",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT GLCR CHE 0-52000-10241-3",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FRST ARC BLZ 0-52000-01029-9",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FRST ICY CHRG 0-52000-01028-2",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT LL 0-52000-13515-2",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT ORG 0-52000-13514-5",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT BLU 0-52000-13517-6",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FT PNCH 0-52000-13513-8",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FRC BL CHE 0-52000-10410-3",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FRC STW 0-52000-13528-2",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT FRC GRP 0-52000-13516-9",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT LME CUCMBR 0-52000-13508-4",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT LGHTNG BLST 0-52000-05798-0",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT MDNT ICE 0-52000-05802-4",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "GAT MU LL ORG 0-52000-06342-4",
+              "quantity": 1.0,
+              "unit_price": 23.0,
+              "total_price": 23.0,
+              "product_code": null
+            },
+            {
+              "description": "AQUA WTR 0-12000-00157-4",
+              "quantity": 1.0,
+              "unit_price": 23.3,
+              "total_price": 23.3,
+              "product_code": null
+            },
+            {
+              "description": "PEPSI 0-12000-00294-6",
+              "quantity": 1.0,
+              "unit_price": 27.8,
+              "total_price": 27.8,
+              "product_code": null
+            },
+            {
+              "description": "2-MDEW KS PNPORGMGO 0-12000-1803",
+              "quantity": 1.0,
+              "unit_price": 19.5,
+              "total_price": 19.5,
+              "product_code": null
+            },
+            {
+              "description": "PEPSI WCHE 0-12000-14070-9",
+              "quantity": 1.0,
+              "unit_price": 15.05,
+              "total_price": 15.05,
+              "product_code": null
+            },
+            {
+              "description": "KIWI GUAVA 8-89392-01014-5",
+              "quantity": 1.0,
+              "unit_price": 18.5,
+              "total_price": 18.5,
+              "product_code": null
+            },
+            {
+              "description": "TROP VIBE 8-89392-02139-4",
+              "quantity": 1.0,
+              "unit_price": 18.5,
+              "total_price": 18.5,
+              "product_code": null
+            },
+            {
+              "description": "OASIS VIBE 8-89392-00090-0",
+              "quantity": 1.0,
+              "unit_price": 18.5,
+              "total_price": 18.5,
+              "product_code": null
+            }
+          ],
+          "shift_report_details": {
+            "total_sales": null,
+            "fuel_sales": null,
+            "merch_sales": null,
+            "cash_drop": null
+          }
+        },
+        "confidence": 95,
+        "method": "gemini_flash_vision",
+        "duration": 12.889999999664724
+      },
+      "model_used": "gemini-2.0-flash"
+    }
+  ]
+}
+FAILURE: Pages did not merge.

@@ -74,9 +74,72 @@ class IDExtractor:
             "method": "regex_heuristic"
         }
 
+
+    def _parse_date(self, date_str: str) -> Optional[datetime]:
+        """Parses MM/DD/YYYY or MM-DD-YYYY"""
+        try:
+            date_str = date_str.replace('-', '/')
+            return datetime.strptime(date_str, "%m/%d/%Y")
+        except ValueError:
+            return None
+
+    def validate_id_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Validates extracted ID data: checks expiration, calculates age, etc.
+        """
+        validation_results = {
+            "valid": True,
+            "errors": [],
+            "warnings": [],
+            "age": None,
+            "is_expired": False
+        }
+        
+        dob_str = data.get("dob")
+        exp_str = data.get("expiration_date")
+        
+        # 1. Age Calculation
+        if dob_str:
+            dob = self._parse_date(dob_str)
+            if dob:
+                today = datetime.today()
+                age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+                validation_results["age"] = age
+                if age < 0:
+                     validation_results["valid"] = False
+                     validation_results["errors"].append("Date of Birth is in the future.")
+                elif age < 18:
+                     validation_results["warnings"].append("Under 18 years old.")
+                elif age < 21:
+                     validation_results["warnings"].append("Under 21 years old.")
+            else:
+                 validation_results["warnings"].append("Unparseable DOB format.")
+        
+        # 2. Expiration Check
+        if exp_str:
+            exp = self._parse_date(exp_str)
+            if exp:
+                if exp < datetime.today():
+                    validation_results["valid"] = False
+                    validation_results["is_expired"] = True
+                    validation_results["errors"].append("ID is Expired.")
+            else:
+                validation_results["warnings"].append("Unparseable Expiration Date.")
+        
+        # 3. Logical Consistency
+        if dob_str and exp_str:
+            dob = self._parse_date(dob_str)
+            exp = self._parse_date(exp_str)
+            if dob and exp and exp < dob:
+                 validation_results["valid"] = False
+                 validation_results["errors"].append("Expiration Date is before Date of Birth.")
+
+        return validation_results
+
     def extract_id_data(self, text: str, fallback_llm_func=None) -> Dict[str, Any]:
         """
         Main entry point. Tries Regex first, then falls back to LLM if confidence is low.
+        Performs validation on the final result.
         """
         result = self.extract_from_text(text)
         
@@ -86,12 +149,17 @@ class IDExtractor:
             try:
                 llm_result = fallback_llm_func(text)
                 if llm_result:
-                    return {
+                    result = {
                         "data": llm_result,
                         "confidence": 95, 
                         "method": "llm_fallback"
                     }
             except Exception as e:
                 log.error(f"LLM Fallback failed: {e}")
-                
+        
+        # Run Validation
+        validation = self.validate_id_data(result["data"])
+        result["validation"] = validation
+        
         return result
+

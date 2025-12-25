@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "filename": "87DFDAC7-108D-4C4B-A787-85E970EC125F.JPG",
+    "timestamp": "2025-12-24T22:06:24.281016",
+    "model": "gemini_1.5_flash",
+    "duration_seconds": 2.8185,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "vendor_name": "GIGLIO DISTRIBUTING-BEAUMONT",
+    "total_amount": "2114.82",
+    "invoice_date": "2025-07-08",
+    "invoice_number": "19849240",
+    "doc_type": "Invoice"
+  }
+}

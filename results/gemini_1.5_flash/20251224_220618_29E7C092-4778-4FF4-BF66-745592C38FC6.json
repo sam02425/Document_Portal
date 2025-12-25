@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "filename": "29E7C092-4778-4FF4-BF66-745592C38FC6.JPG",
+    "timestamp": "2025-12-24T22:06:18.263648",
+    "model": "gemini_1.5_flash",
+    "duration_seconds": 4.1698,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "vendor_name": "MOTIVA ENTERPRISES",
+    "total_amount": null,
+    "invoice_date": "2025-07-09",
+    "invoice_number": null,
+    "doc_type": "Bill of Lading"
+  }
+}

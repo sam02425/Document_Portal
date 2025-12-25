@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "filename": "AE04739B-4F62-4218-B881-136822A7861A.JPG",
+    "timestamp": "2025-12-24T22:06:47.287565",
+    "model": "gemini_1.5_flash",
+    "duration_seconds": 2.7707,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "vendor_name": "Community Coffee",
+    "total_amount": "598.00",
+    "invoice_date": "2025-07-14",
+    "invoice_number": "13560519545",
+    "doc_type": "Invoice"
+  }
+}

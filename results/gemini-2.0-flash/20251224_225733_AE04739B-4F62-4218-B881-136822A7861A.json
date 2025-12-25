@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "filename": "AE04739B-4F62-4218-B881-136822A7861A.JPG",
+    "timestamp": "2025-12-24T22:57:33.760530",
+    "model": "gemini-2.0-flash",
+    "duration_seconds": 7.0869,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "doc_type": "Invoice",
+    "vendor": {
+      "name": "Community Coffee",
+      "phone": "800-525-5583",
+      "address": null,
+      "website": null
+    },
+    "invoice_details": {
+      "number": "13560519545",
+      "date": "2025-07-14",
+      "due_date": null,
+      "po_number": null
+    },
+    "financials": {
+      "total_amount": 598.0,
+      "subtotal": 598.0,
+      "tax": 0.0,
+      "credits": null,
+      "balance_due": null
+    },
+    "line_items": [
+      {
+        "description": "OF FRAC DB ESPRESSO RST 3.0OZ",
+        "quantity": 2,
+        "unit_price": 41.85,
+        "total_price": 83.7,
+        "product_code": "15838"
+      },
+      {
+        "description": "CUP STANPAC BRND 12OZ DBL WALL",
+        "quantity": 6,
+        "unit_price": 5.99,
+        "total_price": 35.94,
+        "product_code": "81829"
+      },
+      {
+        "description": "CUP STANPAC BRND 16OZ OBL WALL",
+        "quantity": 6,
+        "unit_price": 6.62,
+        "total_price": 39.72,
+        "product_code": "81830"
+      },
+      {
+        "description": "CUP STANPAC BRND 20OZ DBL WALL",
+        "quantity": 6,
+        "unit_price": 7.57,
+        "total_price": 45.42,
+        "product_code": "81831"
+      },
+      {
+        "description": "CRMR FR VAN BAG 1.5 GAL 2CT",
+        "quantity": 1,
+        "unit_price": 74.72,
+        "total_price": 74.72,
+        "product_code": "90075"
+      },
+      {
+        "description": "CRMR HALF & HALF BAG 1.5 GAL 2",
+        "quantity": 1,
+        "unit_price": 74.72,
+        "total_price": 74.72,
+        "product_code": "90076"
+      },
+      {
+        "description": "FLT DUAL BRWR 500CT",
+        "quantity": 1,
+        "unit_price": 11.22,
+        "total_price": 11.22,
+        "product_code": "90222"
+      },
+      {
+        "description": "7IN RED FILM WRAPPED COFFEE ST",
+        "quantity": 2,
+        "unit_price": 15.3,
+        "total_price": 30.6,
+        "product_code": "91641"
+      },
+      {
+        "description": "HOLD & GO LID 12-24OZ 12/100CT",
+        "quantity": 6,
+        "unit_price": 7.14,
+        "total_price": 42.84,
+        "product_code": "91621"
+      },
+      {
+        "description": "CAPP CCC FR VAN 2LB 6CT",
+        "quantity": 1,
+        "unit_price": 54.06,
+        "total_price": 54.06,
+        "product_code": "92397"
+      },
+      {
+        "description": "COCOA CCC HOT MIX 2LB 6CT",
+        "quantity": 1,
+        "unit_price": 54.06,
+        "total_price": 54.06,
+        "product_code": "94014"
+      },
+      {
+        "description": "PRF SERVE SUGAR 3LB 6CT",
+        "quantity": 1,
+        "unit_price": 51.0,
+        "total_price": 51.0,
+        "product_code": "95606"
+      }
+    ],
+    "shift_report_details": {
+      "total_sales": null,
+      "fuel_sales": null,
+      "merch_sales": null,
+      "cash_drop": null
+    }
+  }
+}

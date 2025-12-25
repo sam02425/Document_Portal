@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "filename": "8A18F0A0-A428-4EF2-A14D-ABFE4EA05E90.JPG",
+    "timestamp": "2025-12-24T22:55:21.407024",
+    "model": "gemini-2.0-flash",
+    "duration_seconds": 10.0246,
+    "confidence_score": 95
+  },
+  "extraction": {
+    "doc_type": "Shift Report",
+    "vendor": {
+      "name": null,
+      "phone": null,
+      "address": null,
+      "website": null
+    },
+    "invoice_details": {
+      "number": null,
+      "date": null,
+      "due_date": null,
+      "po_number": null
+    },
+    "financials": {
+      "total_amount": null,
+      "subtotal": null,
+      "tax": null,
+      "credits": null,
+      "balance_due": null
+    },
+    "line_items": [
+      {
+        "description": "CIG PACKS",
+        "quantity": 46.0,
+        "unit_price": null,
+        "total_price": 389.83,
+        "product_code": null
+      },
+      {
+        "description": "DELI",
+        "quantity": 151.0,
+        "unit_price": null,
+        "total_price": 451.51,
+        "product_code": null
+      },
+      {
+        "description": "BEER SINGLE",
+        "quantity": 10.0,
+        "unit_price": null,
+        "total_price": 29.1,
+        "product_code": null
+      },
+      {
+        "description": "TAX GROC",
+        "quantity": 31.0,
+        "unit_price": null,
+        "total_price": 149.96,
+        "product_code": null
+      },
+      {
+        "description": "ICE PRODUCTS",
+        "quantity": 13.0,
+        "unit_price": null,
+        "total_price": 28.47,
+        "product_code": null
+      },
+      {
+        "description": "FOUNTAIN",
+        "quantity": 12.0,
+        "unit_price": null,
+        "total_price": 23.88,
+        "product_code": null
+      },
+      {
+        "description": "CANDY",
+        "quantity": 19.0,
+        "unit_price": null,
+        "total_price": 60.05,
+        "product_code": null
+      },
+      {
+        "description": "AUTO",
+        "quantity": 1.0,
+        "unit_price": null,
+        "total_price": 3.99,
+        "product_code": null
+      },
+      {
+        "description": "LOTTO",
+        "quantity": 3.0,
+        "unit_price": null,
+        "total_price": 46.0,
+        "product_code": null
+      },
+      {
+        "description": "LOTTERY",
+        "quantity": 34.0,
+        "unit_price": null,
+        "total_price": 189.0,
+        "product_code": null
+      },
+      {
+        "description": "CHIPSNUTS",
+        "quantity": 20.0,
+        "unit_price": null,
+        "total_price": 50.6,
+        "product_code": null
+      },
+      {
+        "description": "LOTTERY PAID OUT",
+        "quantity": 4.0,
+        "unit_price": null,
+        "total_price": -54.0,
+        "product_code": null
+      },
+      {
+        "description": "JUICEWATER",
+        "quantity": 20.0,
+        "unit_price": null,
+        "total_price": 59.4,
+        "product_code": null
+      },
+      {
+        "description": "BEER CARTONS",
+        "quantity": 7.0,
+        "unit_price": null,
+        "total_price": 108.03,
+        "product_code": null
+      },
+      {
+        "description": "HABA TAX",
+        "quantity": 4.0,
+        "unit_price": null,
+        "total_price": 21.36,
+        "product_code": null
+      },
+      {
+        "description": "TABACCOCIGARS",
+        "quantity": 59.0,
+        "unit_price": null,
+        "total_price": 384.22,
+        "product_code": null
+      },
+      {
+        "description": "ICE CREAM",
+        "quantity": 11.0,
+        "unit_price": null,
+        "total_price": 37.79,
+        "product_code": null
+      },
+      {
+        "description": "DAIRY",
+        "quantity": 2.0,
+        "unit_price": null,
+        "total_price": 3.98,
+        "product_code": null
+      },
+      {
+        "description": "JERKY",
+        "quantity": 7.0,
+        "unit_price": null,
+        "total_price": 32.43,
+        "product_code": null
+      },
+      {
+        "description": "SOFT DRINK",
+        "quantity": 125.0,
+        "unit_price": null,
+        "total_price": 363.25,
+        "product_code": null
+      },
+      {
+        "description": "SNACKS",
+        "quantity": 46.0,
+        "unit_price": null,
+        "total_price": 161.64,
+        "product_code": null
+      },
+      {
+        "description": "FREAL",
+        "quantity": 2.0,
+        "unit_price": null,
+        "total_price": 8.58,
+        "product_code": null
+      }
+    ],
+    "shift_report_details": {
+      "total_sales": 3897.12,
+      "fuel_sales": 702.3,
+      "merch_sales": 3202.84,
+      "cash_drop": -4090.39
+    }
+  }
+}
