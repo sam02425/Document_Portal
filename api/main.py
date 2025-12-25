@@ -21,6 +21,7 @@ from document_portal_core.compliance import ComplianceChecker
 from document_portal_core.scanner import DocumentScanner
 from document_portal_core.invoice_extractor import InvoiceExtractor
 from document_portal_core.gemini_extractor import GeminiVisionExtractor
+from document_portal_core.id_matcher import IDMatcher
 from document_portal_core.user_store import USER_STORE
 from document_portal_core.result_manager import RESULT_MANAGER
 from logger import GLOBAL_LOGGER as log
@@ -45,6 +46,7 @@ invoice_extractor = InvoiceExtractor()
 compliance_checker = ComplianceChecker()
 document_scanner = DocumentScanner()
 gemini_extractor = GeminiVisionExtractor() # Needs GOOGLE_API_KEY in env
+id_matcher = IDMatcher()
 
 # Temp storage for uploads
 UPLOAD_DIR = Path("temp_uploads")
@@ -65,12 +67,37 @@ def health_check():
 @app.post("/extract/id")
 async def extract_id_endpoint(
     file: UploadFile = File(...),
-    user_id: str = Form(None) # Optional user_id for caching
+    user_id: str = Form(None),  # Optional user_id for caching
+    use_vision: bool = Form(True)  # Use Gemini Vision for name/address extraction (default: True)
 ):
     """
-    Extracts ID data. Checks cache first if user_id is provided.
+    Extracts ID data with enhanced name and address extraction.
+    Automatically uses Gemini Vision when regex confidence is low or name/address is missing.
+
+    Args:
+        file: ID image file (Driver's License, State ID, Passport)
+        user_id: Optional user ID for caching results
+        use_vision: Enable Gemini Vision fallback for name/address (default: True)
+
+    Returns:
+        {
+            "extracted": {
+                "data": {
+                    "full_name": "...",
+                    "address": {"street": "...", "city": "...", "state": "...", "zip": "..."},
+                    "dob": "...",
+                    "expiration_date": "...",
+                    "license_number": "...",
+                    ...
+                },
+                "confidence": 95,
+                "method": "gemini_vision" | "hybrid_regex_vision" | "regex_heuristic",
+                "validation": {...}
+            },
+            "source": "cache" | "extraction"
+        }
     """
-    temp_path = None # Initialize temp_path for finally block
+    temp_path = None
     try:
         # 1. Check Cache
         if user_id:
@@ -79,32 +106,169 @@ async def extract_id_endpoint(
                 log.info(f"Cache hit for user {user_id}")
                 return {"extracted": cached_data, "source": "cache"}
 
-        # 2. Process Image (OCR)
-        # Save temp file
+        # 2. Save temp file
         temp_path = UPLOAD_DIR / f"{uuid.uuid4()}_{file.filename}"
         with open(temp_path, "wb") as f:
             f.write(await file.read())
-            
-        # Extract text (using optimized ingestion)
+
+        # 3. Extract text via OCR (for regex extraction)
         text = ingestion._process_image(Path(temp_path))
-        
-        # Extract Data
-        # Fallback to LLM if needed (pass the Analyzer's cheap LLM func)
-        # For now, simplest path:
-        result = id_extractor.extract_id_data(text) # Add fallback later if needed
-        
-        # 3. Save to Cache
-        if user_id and result.get("confidence", 0) > 50: # Use .get for safety
+
+        # 4. Extract ID data with vision fallback
+        result = id_extractor.extract_id_data(
+            text=text,
+            image_path=str(temp_path) if use_vision else None,
+            use_vision_first=False  # Try regex first, fall back to vision if needed
+        )
+
+        # 5. Save to Cache
+        if user_id and result.get("confidence", 0) > 50:
             USER_STORE.save_user_data(user_id, result)
 
-        return {"extracted": result, "source": "ocr"}
-        
+        return {
+            "extracted": result,
+            "source": "extraction",
+            "method_used": result.get("method", "unknown")
+        }
+
     except Exception as e:
         log.error("ID Extraction failed", error=str(e))
         raise HTTPException(status_code=500, detail=str(e))
     finally:
         if temp_path and temp_path.exists():
             os.remove(temp_path)
+
+@app.post("/verify/id_to_contract")
+async def verify_id_to_contract_endpoint(
+    id_file: UploadFile = File(...),
+    contract_file: UploadFile = File(None),
+    contract_data_json: str = Form(None),
+    verification_fields: str = Form("name,address,dob")
+):
+    """
+    Verifies that ID information matches contract party information.
+
+    This endpoint performs comprehensive matching between an ID (Driver's License, State ID, Passport)
+    and contract party data. It handles name variations, address normalization, and DOB verification.
+
+    Args:
+        id_file: ID image file (required)
+        contract_file: Contract PDF/image file (optional, provide either this or contract_data_json)
+        contract_data_json: JSON string with contract party data (optional)
+            Format: {"party_name": "...", "party_address": "...", "party_dob": "..."}
+        verification_fields: Comma-separated fields to verify (default: "name,address,dob")
+
+    Returns:
+        {
+            "id_extraction": {...},
+            "contract_data": {...},
+            "verification_result": {
+                "overall_match": True/False,
+                "overall_score": 85.5,
+                "field_results": {
+                    "name": {"match": True, "score": 95, "method": "fuzzy_components", ...},
+                    "address": {"match": True, "score": 90, "method": "normalized_comparison", ...},
+                    "dob": {"match": True, "score": 100, "method": "exact_date", ...}
+                },
+                "recommendation": "verified" | "review_required" | "rejected"
+            }
+        }
+
+    Example Usage (with contract_data_json):
+        POST /verify/id_to_contract
+        Form data:
+            id_file: <ID image>
+            contract_data_json: '{"party_name": "John Smith", "party_address": "123 Main St, Austin, TX", "party_dob": "01/15/1990"}'
+            verification_fields: "name,address,dob"
+    """
+    id_temp_path = None
+    contract_temp_path = None
+
+    try:
+        # 1. Save ID file
+        id_temp_path = UPLOAD_DIR / f"{uuid.uuid4()}_{id_file.filename}"
+        with open(id_temp_path, "wb") as f:
+            f.write(await id_file.read())
+
+        # 2. Extract ID data
+        log.info("Extracting ID data...")
+        id_text = ingestion._process_image(Path(id_temp_path))
+        id_result = id_extractor.extract_id_data(
+            text=id_text,
+            image_path=str(id_temp_path),
+            use_vision_first=False
+        )
+
+        if id_result.get("confidence", 0) < 50:
+            raise HTTPException(
+                status_code=400,
+                detail="ID extraction confidence too low. Please provide a clearer image."
+            )
+
+        # 3. Get contract data
+        contract_data = {}
+
+        if contract_data_json:
+            # Use provided JSON data
+            try:
+                contract_data = json.loads(contract_data_json)
+            except json.JSONDecodeError:
+                raise HTTPException(status_code=400, detail="Invalid JSON in contract_data_json")
+
+        elif contract_file:
+            # Extract from contract file
+            contract_temp_path = UPLOAD_DIR / f"{uuid.uuid4()}_{contract_file.filename}"
+            with open(contract_temp_path, "wb") as f:
+                f.write(await contract_file.read())
+
+            log.info("Extracting contract data...")
+            contract_text = ingestion.ingest(contract_temp_path)
+
+            # Try to extract party information from contract text
+            # This is a simple extraction - you may want to enhance this
+            # For now, we'll look for basic patterns
+            contract_data = {
+                "extracted_text": contract_text[:500],  # First 500 chars for context
+                "note": "Provide structured contract_data_json for better matching"
+            }
+        else:
+            raise HTTPException(
+                status_code=400,
+                detail="Either contract_file or contract_data_json must be provided"
+            )
+
+        # 4. Parse verification fields
+        fields_to_verify = [f.strip() for f in verification_fields.split(",")]
+
+        # 5. Perform matching
+        log.info(f"Performing ID-to-contract matching for fields: {fields_to_verify}")
+        verification_result = id_matcher.match_id_to_contract(
+            id_data=id_result.get("data", {}),
+            contract_data=contract_data,
+            verification_fields=fields_to_verify
+        )
+
+        return {
+            "id_extraction": {
+                "data": id_result.get("data", {}),
+                "confidence": id_result.get("confidence", 0),
+                "method": id_result.get("method", "unknown")
+            },
+            "contract_data": contract_data,
+            "verification_result": verification_result,
+            "status": "success"
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        log.error(f"ID-to-contract verification failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        if id_temp_path and id_temp_path.exists():
+            os.remove(id_temp_path)
+        if contract_temp_path and contract_temp_path.exists():
+            os.remove(contract_temp_path)
 
 @app.post("/verify/contract")
 async def verify_contract(

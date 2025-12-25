@@ -67,17 +67,169 @@ class Ingestion:
                 # Resize if too large
                 if max(img.size) > max_dimension:
                     img.thumbnail((max_dimension, max_dimension), Image.Resampling.LANCZOS)
-                
+
                 # Convert to RGB if needed (handle PNG/RGBA)
                 if img.mode in ('RGBA', 'P'):
                     img = img.convert('RGB')
-                    
+
                 # Save with compression
                 img.save(image_path, "JPEG", quality=quality, optimize=True)
                 return image_path
         except Exception as e:
             # Fallback (e.g. if PDF)
             return image_path
+
+    def compress_with_target_quality(
+        self,
+        image_path: Path,
+        target_ssim: float = 0.98,
+        max_dimension: int = 2048,
+        min_quality: int = 60,
+        max_quality: int = 95
+    ) -> dict:
+        """
+        Compresses image to achieve target SSIM (structural similarity) while minimizing file size.
+
+        This implements the 98% detail retention requirement by iteratively finding
+        the optimal JPEG quality that achieves target_ssim (default 0.98 = 98% similarity).
+
+        Args:
+            image_path: Path to image file
+            target_ssim: Target SSIM score (0-1, default 0.98 for 98% detail retention)
+            max_dimension: Maximum dimension for resizing (default 2048px)
+            min_quality: Minimum JPEG quality to try (default 60)
+            max_quality: Maximum JPEG quality to try (default 95)
+
+        Returns:
+            {
+                "compressed_path": Path,
+                "ssim_score": float,
+                "quality_used": int,
+                "original_size_bytes": int,
+                "compressed_size_bytes": int,
+                "compression_ratio": float,
+                "detail_retention": float  # SSIM as percentage
+            }
+
+        Note: Requires scikit-image for SSIM calculation. Falls back to fixed quality if not available.
+        """
+        try:
+            # Try to import SSIM
+            try:
+                from skimage.metrics import structural_similarity as ssim
+                SSIM_AVAILABLE = True
+            except ImportError:
+                log.warning("scikit-image not available, using fixed quality compression")
+                SSIM_AVAILABLE = False
+
+            original_size = image_path.stat().st_size
+
+            with Image.open(image_path) as original_img:
+                # Resize if too large
+                img = original_img.copy()
+                if max(img.size) > max_dimension:
+                    img.thumbnail((max_dimension, max_dimension), Image.Resampling.LANCZOS)
+
+                # Convert to RGB
+                if img.mode in ('RGBA', 'P'):
+                    img = img.convert('RGB')
+
+                if not SSIM_AVAILABLE:
+                    # Fallback: use fixed quality
+                    img.save(image_path, "JPEG", quality=85, optimize=True)
+                    return {
+                        "compressed_path": image_path,
+                        "ssim_score": None,
+                        "quality_used": 85,
+                        "original_size_bytes": original_size,
+                        "compressed_size_bytes": image_path.stat().st_size,
+                        "compression_ratio": original_size / image_path.stat().st_size,
+                        "detail_retention": None
+                    }
+
+                # Convert PIL to numpy for SSIM calculation
+                original_array = np.array(img)
+
+                # Binary search for optimal quality
+                best_quality = max_quality
+                best_ssim = 0.0
+
+                low = min_quality
+                high = max_quality
+
+                while low <= high:
+                    mid_quality = (low + high) // 2
+
+                    # Compress with current quality
+                    import io
+                    buffer = io.BytesIO()
+                    img.save(buffer, "JPEG", quality=mid_quality, optimize=True)
+                    buffer.seek(0)
+
+                    # Load compressed image
+                    compressed_img = Image.open(buffer)
+                    compressed_array = np.array(compressed_img)
+
+                    # Calculate SSIM
+                    # Handle different channel counts
+                    if len(original_array.shape) == 3 and len(compressed_array.shape) == 3:
+                        current_ssim = ssim(
+                            original_array,
+                            compressed_array,
+                            channel_axis=2,
+                            data_range=255
+                        )
+                    else:
+                        current_ssim = ssim(
+                            original_array,
+                            compressed_array,
+                            data_range=255
+                        )
+
+                    log.info(f"Quality {mid_quality}: SSIM = {current_ssim:.4f}")
+
+                    if abs(current_ssim - target_ssim) < 0.01:  # Close enough
+                        best_quality = mid_quality
+                        best_ssim = current_ssim
+                        break
+
+                    if current_ssim < target_ssim:
+                        # Need higher quality
+                        low = mid_quality + 1
+                        if current_ssim > best_ssim:
+                            best_ssim = current_ssim
+                            best_quality = mid_quality
+                    else:
+                        # Can try lower quality
+                        high = mid_quality - 1
+                        best_ssim = current_ssim
+                        best_quality = mid_quality
+
+                # Save with best quality
+                img.save(image_path, "JPEG", quality=best_quality, optimize=True)
+
+                compressed_size = image_path.stat().st_size
+
+                return {
+                    "compressed_path": image_path,
+                    "ssim_score": best_ssim,
+                    "quality_used": best_quality,
+                    "original_size_bytes": original_size,
+                    "compressed_size_bytes": compressed_size,
+                    "compression_ratio": original_size / compressed_size if compressed_size > 0 else 1,
+                    "detail_retention": best_ssim * 100  # Convert to percentage
+                }
+
+        except Exception as e:
+            log.error(f"Compression with target quality failed: {e}")
+            # Fallback to standard compression
+            self.compress_image(image_path, max_dimension, 85)
+            return {
+                "compressed_path": image_path,
+                "ssim_score": None,
+                "quality_used": 85,
+                "error": str(e)
+            }
             
     def _process_image(self, image_path: Path) -> str:
         """

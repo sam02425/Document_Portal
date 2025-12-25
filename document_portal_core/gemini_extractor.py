@@ -44,51 +44,79 @@ class GeminiVisionExtractor:
             # 2. Prompt
             prompt = """
         Analyze this image. It is likely an Invoice, Receipt, or Shift Report.
-        
-        EXTRACT THE FOLLOWING AS JSON:
+
+        EXTRACT THE FOLLOWING AS JSON WITH MAXIMUM DETAIL FOR POS INTEGRATION:
         {
-            "doc_type": "Invoice" | "Shift Report" | "Lottery Report" | "Other",
+            "doc_type": "Invoice" | "Shift Report" | "Lottery Report" | "Receipt" | "Other",
             "vendor": {
                 "name": "string",
                 "phone": "string",
                 "address": "string",
-                "website": "string"
+                "website": "string",
+                "vendor_id": "string (if visible)"
             },
             "invoice_details": {
                 "number": "string",
                 "date": "YYYY-MM-DD",
                 "due_date": "YYYY-MM-DD",
-                "po_number": "string"
+                "po_number": "string",
+                "terms": "string (e.g., Net 30)"
             },
             "financials": {
                 "total_amount": "number (float)",
                 "subtotal": "number",
                 "tax": "number",
+                "tax_rate": "number (percentage if visible)",
+                "shipping": "number",
                 "credits": "number (negative if credit)",
-                "balance_due": "number"
+                "balance_due": "number",
+                "currency": "string (default: USD)"
             },
             "line_items": [
                 {
-                    "description": "string",
+                    "item_number": "number (line number on invoice)",
+                    "description": "string (full product name/description)",
+                    "brand": "string (extract brand if visible)",
+                    "upc": "string (UPC/EAN barcode if visible)",
+                    "sku": "string (SKU/product code)",
+                    "product_code": "string (alternative product code)",
                     "quantity": "number",
+                    "unit_of_measure": "string (EA, CS, BX, LB, OZ, GAL, etc.)",
+                    "pack_size": "string (e.g., 12-pack, 24oz, 6ct)",
                     "unit_price": "number",
                     "total_price": "number",
-                    "product_code": "string"
+                    "category": "string (Food, Beverage, Tobacco, etc.)"
                 }
             ],
             "shift_report_details": {
                "total_sales": "number",
                "fuel_sales": "number",
                "merch_sales": "number",
-               "cash_drop": "number"
+               "cash_drop": "number",
+               "credit_card_sales": "number",
+               "cash_sales": "number"
             }
         }
-        
-        CRITICAL RULES:
+
+        CRITICAL RULES FOR POS INTEGRATION:
         1. If it's a "Shift Report" or "Night Audit", use `shift_report_details` heavily.
-        2. If it's an Invoice (like Pepsi, Coke), extract EVERY SINGLE line item into `line_items`.
-        3. Extract Date formats to YYYY-MM-DD.
-        4. If a field is missing, use null.
+        2. If it's an Invoice (like Pepsi, Coke, McLane), extract EVERY SINGLE line item into `line_items`.
+        3. For each line item, extract:
+           - UPC codes (12-13 digit barcodes, often visible on product line)
+           - SKU or product codes
+           - Unit of measure (look for EA, CS, CASE, BOX, LB, OZ, GAL, etc.)
+           - Pack size (12-pack, 6ct, 24oz bottle, etc.)
+           - Brand name if identifiable in description
+        4. Extract Date formats to YYYY-MM-DD.
+        5. For unit_of_measure, standardize to common codes:
+           - EA (Each), CS (Case), BX (Box), LB (Pound), OZ (Ounce), GAL (Gallon)
+           - If unclear, use the abbreviation from the invoice
+        6. If a field is missing, use null (not empty string).
+        7. Look for vendor ID numbers, account numbers, or customer codes.
+
+        EXAMPLES:
+        - "Coca-Cola 12oz 24pk" -> {description: "Coca-Cola 12oz 24pk", brand: "Coca-Cola", pack_size: "24pk", unit_of_measure: "CS"}
+        - "100234567 PEPSI 2L 8PK" -> {sku: "100234567", description: "PEPSI 2L 8PK", brand: "PEPSI", pack_size: "8pk"}
         """
 
             # 3. Call LLM
