@@ -11,11 +11,16 @@ uvicorn==0.35.0
 python-dotenv==1.1.1
 python-multipart==0.0.20
 PyMuPDF==1.26.3
+pdf2image
 structlog==25.4.0
 docx2txt==0.9
+python-docx
+pytesseract
+opencv-python
 ipykernel==6.30.0
 streamlit==1.47.1
 pytest==8.4.1
 pypdf==5.8.0
 cfn-lint
 -e .
+opencv-python-headless
